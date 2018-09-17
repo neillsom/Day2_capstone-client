@@ -6,8 +6,11 @@ const initialState = {
 
 const styleReducer = (state=initialState, action) => {
 	switch (action.type) {
-		case '':
-			return {}
+		case 'FETCH_STYLES_SUCCESS':
+			return {
+				...state,
+				styles: action.styles
+			}
 
 		default:
 			return state

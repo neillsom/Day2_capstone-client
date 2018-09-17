@@ -11,14 +11,27 @@ class StyleList extends React.Component {
 	}
 
 	render() {
+		// const styles = this.props.styles.map((style,index) =>
+		// 	<li key={index}>
+		// 		{style}
+		// 	</li>
+		// )
+
 		return (
 			<div>
 				<h1>Style List</h1>
 				<button onClick={() => this.props.dispatch(fetchStylesFromApi())}>Fetch styles from api</button>
+				<ul>
+
+				</ul>
 			</div>
 		)
 
 	}
 }
 
-export default connect()(StyleList)
+const mapStateToProps = state => ({
+	styles: state.styles
+})
+
+export default connect(mapStateToProps)(StyleList)

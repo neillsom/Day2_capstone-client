@@ -1,8 +1,18 @@
-export const fetchStylesFromApi = () =>{
-	return () => {
-		fetch(`http://localhost:8080/api/styles`)
+import { API_BASE_URL } from '../config'
+
+export const FETCH_STYLES_SUCCESS = 'FETCH_STYLES_SUCCESS';
+export const fetchStylesSuccess = (styles) => {
+  return {
+    type: FETCH_STYLES_SUCCESS,
+    styles
+  }
+}
+
+export const fetchStylesFromApi = () => {
+	return (dispatch) => {
+		fetch(`${API_BASE_URL}/api/styles`)
 		.then(response => response.json())
-		.then(styles => console.log(styles))
+		.then(styles => dispatch(fetchStylesSuccess(styles)))
 		.catch(error => console.log(error))
 	}
 }
