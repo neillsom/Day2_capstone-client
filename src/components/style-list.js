@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchStylesFromApi } from '../actions'
 
-export default class StyleList extends React.Component {
+class StyleList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -9,19 +11,14 @@ export default class StyleList extends React.Component {
 	}
 
 	render() {
-		const styles = this.state.styles.map((style, index) => 
-			<li key={index}>
-				{style}
-			</li>
-		)
 		return (
 			<div>
 				<h1>Style List</h1>
-				<ul>
-					{styles}
-				</ul>
+				<button onClick={() => this.props.dispatch(fetchStylesFromApi())}>Fetch styles from api</button>
 			</div>
 		)
 
 	}
 }
+
+export default connect()(StyleList)

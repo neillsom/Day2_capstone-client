@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import StyleList from './components/style-list'
+import StyleList from './components/style-list';
+import store from './store';
+import { Provider } from 'react-redux';
 
-const styles = [
-	'Long Spiral Curls With Single Side Braid',
-	'Relaxed Center-Parted Brown Waves With Highlights',
-	'Straight Layered Blonde Hair With Side-Swept Bang'
-]
+
 
 ReactDOM.render(
-	<StyleList styles={styles}/>, 
+
+	<Provider store={store}>	
+		<StyleList />
+	</Provider>,
 	document.getElementById('root')
 );
 registerServiceWorker();
