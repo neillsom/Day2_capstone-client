@@ -11,12 +11,6 @@ class StyleList extends React.Component {
 	}
 
 	render() {
-		// const styles = this.props.styles.map((style,index) =>
-		// 	<li key={index}>
-		// 		{style}
-		// 	</li>
-		// )
-
 		return (
 			<div>
 				<h1>Style List</h1>
