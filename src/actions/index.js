@@ -9,7 +9,7 @@ export const fetchStylesSuccess = (styles) => {
 }
 
 export const fetchStylesFromApi = () => {
-	console.log('API_BASE_URL: ',API_BASE_URL)
+	// console.log('API_BASE_URL: ',API_BASE_URL)
 	return (dispatch) => {
 		fetch(`${API_BASE_URL}/api/styles`)
 		.then(response => response.json())
