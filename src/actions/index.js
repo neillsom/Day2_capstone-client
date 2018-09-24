@@ -9,9 +9,8 @@ export const fetchStylesSuccess = (styles) => {
 }
 
 export const fetchStylesFromApi = () => {
-	// console.log('API_BASE_URL: ',API_BASE_URL)
 	return (dispatch) => {
-		fetch(`${API_BASE_URL}/api/styles`)
+		fetch(`${API_BASE_URL}/styles`)
 		.then(response => response.json())
 		.then(styles => dispatch(fetchStylesSuccess(styles)))
 		.catch(error => console.log(error))

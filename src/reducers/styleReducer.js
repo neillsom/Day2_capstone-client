@@ -1,10 +1,12 @@
+import * as actions from '../actions';
+
 const initialState = {
 	styles: [],
 	loading: false,
 	error: null
 };
 
-const styleReducer = (state=initialState, action) => {
+const styles = (state=initialState, action) => {
 	switch (action.type) {
 		case 'FETCH_STYLES_SUCCESS':
 			return {
@@ -15,6 +17,7 @@ const styleReducer = (state=initialState, action) => {
 		default:
 			return state
 	}
+
 };
 
-export default styleReducer;
+export default styles;

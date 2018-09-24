@@ -10,13 +10,23 @@ class StyleList extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		this.props.dispatch(fetchStylesFromApi())
+  }	
+
 	render() {
+		const styles = this.props.styles.map((style, index) =>
+			<li key={index}>
+				<h3>{style.title}</h3>
+				<img src={style.imgUrl} />
+			</li>
+		)
+
 		return (
 			<div>
 				<h1>Style List</h1>
-				<button onClick={() => this.props.dispatch(fetchStylesFromApi())}>Fetch styles from api</button>
 				<ul>
-
+					{styles}
 				</ul>
 			</div>
 		)
@@ -25,7 +35,7 @@ class StyleList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	styles: state.styles
+	styles: state.styles.styles
 })
 
 export default connect(mapStateToProps)(StyleList)
