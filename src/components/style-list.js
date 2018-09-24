@@ -1,41 +1,52 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchStylesFromApi } from '../actions'
+import './style-list.css'
+
+// <input type="checkbox" id="addToFavorites" name="addToFavorites" />
+// <label htmlFor="addToFavorites">Add to favorites</label>
 
 class StyleList extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			styles: props.styles
-		}
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      styles: props.styles
+    }
+  }
 
-	componentDidMount() {
-		this.props.dispatch(fetchStylesFromApi())
-  }	
+  componentDidMount() {
+    this.props.dispatch(fetchStylesFromApi())
+  }
 
-	render() {
-		const styles = this.props.styles.map((style, index) =>
-			<li key={index}>
-				<h3>{style.title}</h3>
-				<img src={style.imgUrl} />
-			</li>
-		)
+  render() {
+    const styles = this.props.styles.map((style, index) =>
+      <section key={index} className="card">
 
-		return (
-			<div>
-				<h1>Style List</h1>
-				<ul>
-					{styles}
-				</ul>
-			</div>
-		)
+        <figure className="card__thumbnail">
+          <img src={style.imgUrl} alt={style.title} />
+          <main className="card__description">
+            <header className="card__title">
+              <h3>{style.title}</h3>
+            </header>
+            <p>Length: {style.length}</p>
+          </main>
+        </figure>
+        <a href="#" className="button" onClick={() => console.log('addtofavorites clicked')}>Add to favorites</a>
 
-	}
+      </section>
+    )
+
+    return (
+      <div className="card-container">
+        {styles}
+      </div>
+    )
+
+  }
 }
 
 const mapStateToProps = state => ({
-	styles: state.styles.styles
+  styles: state.styles.styles
 })
 
 export default connect(mapStateToProps)(StyleList)
