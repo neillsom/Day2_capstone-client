@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchStylesFromApi } from '../actions'
-import './style-list.css'
+import './styles/style-list.css'
 
 // <input type="checkbox" id="addToFavorites" name="addToFavorites" />
 // <label htmlFor="addToFavorites">Add to favorites</label>
