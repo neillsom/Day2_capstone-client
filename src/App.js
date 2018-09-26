@@ -1,21 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import registerServiceWorker from './registerServiceWorker';
+import StyleList from './components/style-list';
+import store from './store';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Dashboard from './components/dashboard';
+import Favorites from './components/favorites';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+
+
+ReactDOM.render(
+
+  <Provider store={store}>
+    <Router>
+      <div className="user-creation-login">
+        <header role="banner">
+          <h1>Day2 Hair</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+        <main role="main">
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/favorites" component={Favorites} />
 
-export default App;
+        </main>
+      </div>
+    </Router>
+  </Provider>,
+  document.getElementById('root')
+);
+registerServiceWorker();

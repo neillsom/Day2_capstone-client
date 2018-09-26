@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchStylesFromApi } from '../actions'
+import { fetchStylesFromApi } from '../actions/styles'
 import './styles/style-list.css'
-
-// <input type="checkbox" id="addToFavorites" name="addToFavorites" />
-// <label htmlFor="addToFavorites">Add to favorites</label>
 
 class StyleList extends React.Component {
   constructor(props) {
@@ -31,7 +28,9 @@ class StyleList extends React.Component {
             <p>Length: {style.length}</p>
           </main>
         </figure>
-        <a href="#" className="button" onClick={() => console.log('addtofavorites clicked')}>Add to favorites</a>
+        <a href="#" className="button" 
+          onClick={() => console.log('addtofavorites clicked')}>Add to favorites
+        </a>
 
       </section>
     )

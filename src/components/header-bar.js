@@ -6,12 +6,15 @@ import "../index.css"
 import "./styles/header-bar.css";
 
 export class HeaderBar extends React.Component {
+
   logOut() {
     this.props.dispatch(clearAuth());
     clearAuthToken();
   }
 
   render() {
+
+    console.log(this)
     // Only render the log out button if we are logged in
     let logOutButton;
     if (this.props.loggedIn) {
@@ -25,11 +28,8 @@ export class HeaderBar extends React.Component {
     return (
       <div className="header-bar">
         <div className="header">
-          <h1 className="header-title">H1 title here</h1>
+          <h1 className="header-title">HeaderBar title here</h1>
         </div>
-        
-        </button>
-
         {logOutButton}
       </div>
     );
@@ -37,8 +37,8 @@ export class HeaderBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null,
-  info: state.auth.info
+  // loggedIn: state.auth.currentUser !== null,
+  // info: state.auth.info
 });
 
 export default connect(mapStateToProps)(HeaderBar);

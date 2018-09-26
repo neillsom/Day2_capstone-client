@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/users';
-import {
-  BrowserRouter as Router,
-  Route, Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Favorites extends React.Component {
 

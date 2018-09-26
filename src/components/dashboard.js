@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import actions
 import StyleList from './style-list';
+import HeaderBar from './header-bar';
+
 import './styles/style-list.css';
 import './styles/dashboard.css';
 import { logoutUser } from '../actions/users';
@@ -15,9 +17,8 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="app-container" role="region" aria-labelledby="region1">
-        <button className="logout-button" onClick={() => (
-          console.log('log out clicked')
-        )}>Log Out</button>
+        
+        <HeaderBar />
 
         <Link to="/favorites">
           <button onClick={() => console.log('favorites link clicked')} className="go-to-favorites-button">My favorites</button>

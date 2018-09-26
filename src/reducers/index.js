@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers } from 'redux';
 import styles from './styleReducer';
 
 const rootReducer = combineReducers({
@@ -6,6 +6,3 @@ const rootReducer = combineReducers({
 })
 
 export default rootReducer;
-
-const reducerInitializedStore = createStore(rootReducer);
-console.log(reducerInitializedStore.getState());

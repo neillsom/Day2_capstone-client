@@ -52,10 +52,6 @@ body {
 	color: #444;
 	text-decoration: none;
 	text-align: center;
-	transition: .3s ease-out;
-	&:hover {
-		background-color: darken(tomato, 10%);
-	}
 }
 
 img {
