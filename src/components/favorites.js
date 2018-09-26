@@ -1,25 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logoutUser } from '../actions/users';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-//
-import { fetchStylesFromApi } from '../actions/styles'
+import { fetchFavoritesFromApi } from '../actions/users'
 
 class Favorites extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      styles: props.styles
+      favorites: props.favorites
     }
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchStylesFromApi())
+    this.props.dispatch(fetchFavoritesFromApi())
   }
 
   render() {
-    // const favorites = this.props...map((favorite, index) => )
+    // const favorites = this.props.favorites.map((favorite, index) => 
+    //   <li key={index}>
+    //     {favorite}
+    //   </li>
+    // )
 
     return(
       <div>
@@ -31,7 +32,7 @@ class Favorites extends React.Component {
           <li>One</li>
           <li>Two</li>
           <li>3</li>
-          
+
         </ul>
       </div>
     )
@@ -39,7 +40,7 @@ class Favorites extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  styles: state.style.styles
+  favorites: state.favorites
 })
 
 export default connect(mapStateToProps)(Favorites);
