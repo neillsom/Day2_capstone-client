@@ -4,7 +4,7 @@ const initialState = {
 	error: null
 };
 
-const styles = (state=initialState, action) => {
+const styleReducer = (state=initialState, action) => {
 	switch (action.type) {
 		case 'FETCH_STYLES_SUCCESS':
 			return {
@@ -18,4 +18,4 @@ const styles = (state=initialState, action) => {
 
 };
 
-export default styles;
+export default styleReducer;

@@ -45,7 +45,7 @@ class StyleList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  styles: state.styles.styles
+  styles: state.style.styles
 })
 
 export default connect(mapStateToProps)(StyleList)

@@ -1,0 +1,100 @@
+.loginbox {
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	max-width: 360px;
+	margin: 30px auto;
+	padding: 30px 45px;
+	text-align: center;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+	width: 95%;
+}
+
+.loginbox input {
+	width: 100%;
+	margin: 0 0 15px;
+	padding: 15px;
+	font-size: 14px;
+	height: 34px;
+	line-height: 34px;
+	color: #454227;
+	background-color: #f3f2ed;
+	border: none;
+	/*border: 2px solid #64635533;*/
+}
+
+form.loginbox {
+	margin-top: 50px;
+}
+
+.loginbox button:hover,
+.loginbox button:active,
+.loginbox button:focus {
+	background: #D17A53;
+}
+
+.signup-button {
+	margin: 15px 0 0;
+	color: #db8057;
+	font-size: 12px;
+}
+
+a.signup-button {
+	color: #db8057;
+	text-decoration: none;
+}
+
+button.login-button {
+	background-color: #db8057;
+	border: 2px solid rgba(69, 66, 39, 0.5);
+	border: 0;
+	border-radius: 5px;
+	color: #FFFFFF;
+	font-size: 14px;
+	height: 34px;
+	line-height: 34px;
+	list-style: none;
+	margin: 5px auto;
+	outline: 0;
+	width: 100%;
+	text-transform: uppercase;
+}
+
+button.login-button:hover {
+	cursor: pointer;
+}
+
+.login-form div {
+	display: inline-block;
+}
+
+div.form-input {
+	width: 100%;
+}
+
+
+#firstname,
+#lastname,
+#passwordConfirm,
+#username,
+#password {
+	margin: 5px auto;
+	border-radius: 5px
+}
+
+@media all and (max-width: 330px) {
+	#username,
+	#password {
+		margin: 5px;
+	}
+}
+
+.demo-account {}
+
+@media all and (max-width: 500px) {
+	.demo-account {}
+}
+
+div.signup {
+	margin-top: 15px;
+}
