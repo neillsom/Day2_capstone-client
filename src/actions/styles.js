@@ -9,6 +9,7 @@ export const fetchStylesSuccess = (styles) => {
 }
 
 export const fetchStylesFromApi = () => {
+	console.log('API_BASE_URL: ',API_BASE_URL)
 	return (dispatch) => {
 		fetch(`${API_BASE_URL}/styles`)
 		.then(response => response.json())
@@ -16,3 +17,24 @@ export const fetchStylesFromApi = () => {
 		.catch(error => console.log(error))
 	}
 }
+
+export const addToFavorites = (styleId, token) => {
+
+  return (dispatch) => {
+    console.log(styleId, token);
+
+    fetch(`http://localhost:8080/users/style/${styleId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        styleId
+      })
+    })
+      .then(response => response.json())
+      .then(json => dispatch((json)))
+      .catch(error => console.log(error));
+  };
+};

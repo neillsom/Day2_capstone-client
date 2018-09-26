@@ -30,7 +30,7 @@ form.loginbox {
 .loginbox button:hover,
 .loginbox button:active,
 .loginbox button:focus {
-	background: #D17A53;
+	background: #E1C1C1;
 }
 
 .signup-button {
@@ -40,16 +40,16 @@ form.loginbox {
 }
 
 a.signup-button {
-	color: #db8057;
+	color: #AE8484;
 	text-decoration: none;
 }
 
 button.login-button {
-	background-color: #db8057;
+	background-color: #fbd7d7;
 	border: 2px solid rgba(69, 66, 39, 0.5);
 	border: 0;
 	border-radius: 5px;
-	color: #FFFFFF;
+	color: #444;
 	font-size: 14px;
 	height: 34px;
 	line-height: 34px;

@@ -5,8 +5,8 @@
 
 .sign-up {
 	box-sizing: border-box;
-	background-color: #db8057;
-	color: #ffffff;
+	background-color: #fbd7d7;
+	color: #444;
 	border: none;
 	border-radius: 2px;
 	height: 40px;
@@ -21,7 +21,7 @@
 
 .message-login {
 	margin: 15px 0 0;
-	color: #db8057;
+	color: #AE8484;
 	font-size: 12px;
 }
 

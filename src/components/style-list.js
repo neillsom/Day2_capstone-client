@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchStylesFromApi } from '../actions/styles'
+import { fetchStylesFromApi, addToFavorites } from '../actions/styles'
 import './styles/style-list.css'
 
 class StyleList extends React.Component {
@@ -28,8 +28,9 @@ class StyleList extends React.Component {
             <p>Length: {style.length}</p>
           </main>
         </figure>
-        <a href="#" className="button" 
-          onClick={() => console.log('addtofavorites clicked')}>Add to favorites
+        <a href="#" className="button"
+          onClick={() => this.props.dispatch(addToFavorites(style.id, localStorage.getItem('authToken')))}
+          name="add-to-favorites">Add to favorites
         </a>
 
       </section>
