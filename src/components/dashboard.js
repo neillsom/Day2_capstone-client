@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import actions
 import StyleList from './style-list';
-
+import requiresLogin from "./requires-login";
 import './styles/style-list.css';
 import './styles/dashboard.css';
 import { logoutUser } from '../actions/users';
@@ -24,6 +24,7 @@ class Dashboard extends React.Component {
 
         <header role="banner">
           <h1>Dashboard</h1>
+          <h2>Hello {this.props.username}</h2>
         </header>
         <div className="dashboard">
         </div>
@@ -35,4 +36,12 @@ class Dashboard extends React.Component {
   }
 }
 
-export default connect()(Dashboard);
+const mapStateToProps = state => {
+  const { currentUser } = state.auth;
+  return {
+  username: state.auth.currentUser.username,
+  name: `${currentUser.firstname} ${currentUser.lastname}`,
+  };
+};
+
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));

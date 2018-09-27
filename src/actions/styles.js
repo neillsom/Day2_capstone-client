@@ -20,7 +20,6 @@ export const fetchStylesFromApi = () => {
 export const addToFavorites = (styleId, token) => {
 
   return (dispatch) => {
-    console.log(styleId, token);
 
     fetch(`http://localhost:8080/users/style/${styleId}`, {
       method: 'PUT',

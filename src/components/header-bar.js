@@ -25,6 +25,7 @@ export class HeaderBar extends React.Component {
 
     return (
       <div className="header-bar">
+        <h3>{this.props.currentUser}</h3>
         <div className="header">
           <h1 className="header-title">Day2 HeaderBar</h1>
         </div>

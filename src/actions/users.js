@@ -33,9 +33,17 @@ export const fetchFavoritesSuccess = (favorites) => {
   }
 }
 
-export const fetchFavoritesFromApi = () => {
+// const username = this.props.username
+
+export const fetchFavoritesFromApi = (username, token) => {
   return (dispatch) => {
-    fetch(`${API_BASE_URL}/users/:userId/favorites`)
+    fetch(`${API_BASE_URL}/users/${username}/favorites`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
     .then(response => response.json())
     .then(favorites => dispatch(fetchFavoritesSuccess(favorites)))
     .catch(error => console.log(error))

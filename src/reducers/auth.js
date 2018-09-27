@@ -1,5 +1,6 @@
 import {
 	SET_AUTH_TOKEN,
+	SET_USER_ID,
 	CLEAR_AUTH,
 	AUTH_REQUEST,
 	AUTH_SUCCESS,
@@ -12,13 +13,18 @@ const initialState = {
 	currentUser: null,
 	loading: false,
 	error: null,
-	displayInfo: false
+	displayInfo: false, 
+	userId: null
 };
 
-export default function reducer(state = initialState, action) {
+export default function reducer(state=initialState, action) {
 	if (action.type === SET_AUTH_TOKEN) {
 		return Object.assign({}, state, {
 			authToken: action.authToken
+		});
+	} else if (action.type === SET_USER_ID) {
+		return Object.assign({}, state, {
+			userId: action.userId
 		});
 	} else if (action.type === CLEAR_AUTH) {
 		return Object.assign({}, state, {
@@ -41,7 +47,6 @@ export default function reducer(state = initialState, action) {
 			error: action.error
 		});
 	} else if(action.type === TOGGLE_INFO) {
-		console.log(state.displayInfo)
 		return Object.assign({}, state,  {
 		  displayInfo: !state.displayInfo
 		})

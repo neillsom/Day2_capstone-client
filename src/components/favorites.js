@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { fetchFavoritesFromApi } from '../actions/users'
 
 class Favorites extends React.Component {
@@ -12,10 +11,12 @@ class Favorites extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchFavoritesFromApi())
+    // need to pass in userId and token?
+    this.props.dispatch(fetchFavoritesFromApi(this.props.username,this.props.token))
   }
 
   render() {
+
     // const favorites = this.props.favorites.map((favorite, index) => 
     //   <li key={index}>
     //     {favorite}
@@ -24,15 +25,12 @@ class Favorites extends React.Component {
 
     return(
       <div>
-        <Link to="/dashboard">
-          <button className="link-to-dashboard-button">Dashboard</button>
-        </Link>
         <ul className='userFavorites'>
 
           <li>One</li>
           <li>Two</li>
           <li>3</li>
-
+          <li>Is this working, {this.props.username}?</li>
         </ul>
       </div>
     )
@@ -40,7 +38,9 @@ class Favorites extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  favorites: state.favorites
+  favorites: state.user.favorites.favorites, 
+  username: state.auth.currentUser.username, 
+  token: state.auth.authToken
 })
 
 export default connect(mapStateToProps)(Favorites);
