@@ -33,8 +33,6 @@ export const fetchFavoritesSuccess = (favorites) => {
   }
 }
 
-// const username = this.props.username
-
 export const fetchFavoritesFromApi = (username, token) => {
   return (dispatch) => {
     fetch(`${API_BASE_URL}/users/${username}/favorites`, {

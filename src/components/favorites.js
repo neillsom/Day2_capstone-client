@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchFavoritesFromApi } from '../actions/users'
+import { fetchFavoritesFromApi } from '../actions/users';
 
 class Favorites extends React.Component {
   constructor(props) {
@@ -12,18 +12,29 @@ class Favorites extends React.Component {
 
   componentDidMount() {
     // need to pass in userId and token?
-    this.props.dispatch(fetchFavoritesFromApi(this.props.username,this.props.token))
+    this.props.dispatch(fetchFavoritesFromApi(this.props.username, this.props.token))
   }
 
+  componentDidUpdate() {
+  }
+
+// => ( ...)
+// => { return (...)}
+
   render() {
+    const favorites = this.props.favorites.map((favorite, index) => {
+      return (
+            <li key={index}>
+              {favorite}
+            </li>)
+    })
 
-    // const favorites = this.props.favorites.map((favorite, index) => 
-    //   <li key={index}>
-    //     {favorite}
-    //   </li>
-    // )
 
-    return(
+
+    console.log(this.props)
+
+    return (
+
       <div>
         <ul className='userFavorites'>
 
@@ -31,16 +42,22 @@ class Favorites extends React.Component {
           <li>Two</li>
           <li>3</li>
           <li>Is this working, {this.props.username}?</li>
+          {favorites}
         </ul>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  favorites: state.user.favorites.favorites, 
-  username: state.auth.currentUser.username, 
-  token: state.auth.authToken
+Favorites.defaultProps = {
+  favorites: [], 
+  username: ''
+}
+
+const mapStateToProps = (state) => ({
+  favorites: state.user.favorites.favorites,
+  username: state.auth.currentUser.username,
+  token: state.auth.authToken, 
 })
 
 export default connect(mapStateToProps)(Favorites);
