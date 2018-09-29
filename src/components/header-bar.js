@@ -4,6 +4,7 @@ import { clearAuth, info } from "../actions/auth";
 import { clearAuthToken } from "../local-storage";
 import "../index.css"
 import "./styles/header-bar.css";
+import { Link } from 'react-router-dom';
 
 export class HeaderBar extends React.Component {
 
@@ -13,13 +14,24 @@ export class HeaderBar extends React.Component {
   }
 
   render() {
+
+
+
     // Only render the log out button if we are logged in
-    let logOutButton;
+    let loggedInButtons;
     if (this.props.loggedIn) {
-      logOutButton = (
-        <button className="logout-button" onClick={() => this.logOut()}>
+      loggedInButtons = (
+        <div><button className="logout-button" onClick={() => this.logOut()}>
           Logout
         </button>
+          <Link to="/favorites">
+            <button
+              onClick={() => console.log('favorites link clicked')}
+              className="go-to-favorites-button">
+              My favorites
+          </button>
+          </Link>
+        </div>
       );
     }
 
@@ -29,7 +41,15 @@ export class HeaderBar extends React.Component {
         <div className="header">
           <h1 className="header-title">Day2 HeaderBar</h1>
         </div>
-        {logOutButton}
+        <Link to="/dashboard">
+          <button
+            onClick={() => console.log('dashboard link clicked')}
+            className="go-to-dashboard-button">
+            Dashboard
+          </button>
+        </Link>
+
+        {loggedInButtons}
       </div>
     );
   }

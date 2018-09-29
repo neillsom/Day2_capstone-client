@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import actions
 import StyleList from './style-list';
 import requiresLogin from "./requires-login";
 import './styles/style-list.css';
 import './styles/dashboard.css';
-import { logoutUser } from '../actions/users';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends React.Component {
  

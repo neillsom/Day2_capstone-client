@@ -3,7 +3,7 @@ import { SubmissionError } from 'redux-form';
 
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
-import { saveUserId, saveAuthToken, clearAuthToken } from '../local-storage';
+import { saveAuthToken, clearAuthToken } from '../local-storage';
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
@@ -11,11 +11,6 @@ export const setAuthToken = authToken => ({
 	authToken
 });
 
-export const SET_USER_ID = 'SET_USER_ID';
-export const setUserId = userId => ({
-	type: SET_USER_ID,
-	userId
-});
 
 export const CLEAR_AUTH = 'CLEAR_AUTH';
 export const clearAuth = () => ({
@@ -51,10 +46,6 @@ const storeAuthInfo = (authToken, dispatch) => {
 	saveAuthToken(authToken);
 };
 
-const storeUserId = (userId, dispatch) => {
-	dispatch(setUserId(userId));
-	saveUserId(userId);
-}
 
 export const login = (username, password) => dispatch => {
 	dispatch(authRequest());

@@ -14,17 +14,12 @@ const initialState = {
 	loading: false,
 	error: null,
 	displayInfo: false, 
-	userId: null
 };
 
 export default function reducer(state=initialState, action) {
 	if (action.type === SET_AUTH_TOKEN) {
 		return Object.assign({}, state, {
 			authToken: action.authToken
-		});
-	} else if (action.type === SET_USER_ID) {
-		return Object.assign({}, state, {
-			userId: action.userId
 		});
 	} else if (action.type === CLEAR_AUTH) {
 		return Object.assign({}, state, {

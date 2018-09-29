@@ -1,49 +1,64 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { fetchStylesFromApi, removeFromFavorites } from '../actions/styles'
 import { fetchFavoritesFromApi } from '../actions/users';
+import requiresLogin from "./requires-login";
+import './styles/style-list.css'
 
 class Favorites extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      favorites: props.favorites
-    }
-  }
 
   componentDidMount() {
-    // need to pass in userId and token?
     this.props.dispatch(fetchFavoritesFromApi(this.props.username, this.props.token))
+    this.props.dispatch(fetchStylesFromApi())
   }
 
-  componentDidUpdate() {
-  }
+  // => ( ...)
+  // => { return (...)}
 
-// => ( ...)
-// => { return (...)}
+ outsideLoop = () => {
+  console.log('inside forloop ran')
+  for (let i = 0; i < this.props.styles; i++) {
+    console.log(1+2)
+  }
+ }
 
   render() {
-    const favorites = this.props.favorites.map((favorite, index) => {
-      return (
-            <li key={index}>
-              {favorite}
-            </li>)
-    })
+     const styles = this.props.styles.map((style, index) =>
+      <section key={index} className="card">
+        
+        <figure className="card__thumbnail">
+          <img src={style.imgUrl} alt={style.title} />
+          <main className="card__description">
+            <header className="card__title">
+              <h3>{style.title}</h3>
+            </header>
+            <p>Length: {style.length}</p>
+          </main>
+        </figure>
+         <a href="#" className="button"
+          onClick={() => this.props.dispatch(removeFromFavorites(style.id, localStorage.getItem('authToken')))}
+          name="remove-from-favorites">Remove from favorites
+        </a>
+
+      </section>
+    )
 
 
-
-    console.log(this.props)
+    const favorites = this.props.favorites.map((favorite, index) => 
+      <li key={index}>
+        {this.outsideLoop()}
+        {favorite}
+      </li>
+    )
 
     return (
 
       <div>
+        <h2>{this.props.username}'s favorites</h2>
         <ul className='userFavorites'>
-
-          <li>One</li>
-          <li>Two</li>
-          <li>3</li>
-          <li>Is this working, {this.props.username}?</li>
           {favorites}
         </ul>
+        {styles}
       </div>
     )
   }
@@ -51,13 +66,14 @@ class Favorites extends React.Component {
 
 Favorites.defaultProps = {
   favorites: [], 
-  username: ''
 }
+
 
 const mapStateToProps = (state) => ({
   favorites: state.user.favorites.favorites,
+  styles: state.style.styles,
+  token: state.auth.authToken,
   username: state.auth.currentUser.username,
-  token: state.auth.authToken, 
 })
 
-export default connect(mapStateToProps)(Favorites);
+export default requiresLogin()(connect(mapStateToProps)(Favorites));

@@ -36,3 +36,23 @@ export const addToFavorites = (styleId, token) => {
       .catch(error => console.log(error));
   };
 };
+
+export const removeFromFavorites = (styleId, token) => {
+
+  return (dispatch) => {
+
+    fetch(`http://localhost:8080/users/style/remove/${styleId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        styleId
+      })
+    })
+      .then(response => response.json())
+      .then(json => dispatch((json)))
+      .catch(error => console.log(error));
+  };
+};
