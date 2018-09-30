@@ -23,21 +23,32 @@ class Favorites extends React.Component {
     const favorites = this.props.favorites
       .map(favorite => myStyles.find(style => favorite === style.id))
       .map((favorite, index) =>
-        <li key={index}>
-          <h3>{favorite.title}</h3>
-          <img src={favorite.imgUrl} />
-        </li>
+
+        <section key={index} className="card">
+
+          <figure className="card__thumbnail">
+            <img src={favorite.imgUrl} alt={favorite.title} />
+            <main className="card__description">
+              <header className="card__title">
+                <h3>{favorite.title}</h3>
+              </header>
+              <p>Length: {favorite.length}</p>
+            </main>
+          </figure>
+          <a href="#" className="button"
+            onClick={() => this.props.dispatch(removeFromFavorites(favorite.id, localStorage.getItem('authToken')))}
+            name="remove-from-favorites">Remove from favorites
+        </a>
+
+        </section>
       )
 
     return (
       <div className="app-container" role="region">
         <div className="styleList-container" role="region">
           <h2>{this.props.username}'s favorites</h2>
-          <ul className='userFavorites'>
-            {favorites}
-          </ul>
           <div className="card-container">
-
+          	{favorites}
           </div>
         </div>
       </div>
