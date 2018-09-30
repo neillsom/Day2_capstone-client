@@ -1,0 +1,25 @@
+.filter-selector-forms {
+	text-align: center;
+}
+
+form.length-form {
+	padding: 10px;
+	text-align: left;
+	display: inline-block;
+	width: 33%;
+}
+
+form.clean-or-dirty-form {
+	padding: 10px;
+	text-align: left;
+	display: inline-block;
+	width: 33%;
+}
+
+.recommend-button {
+	padding: 10px;
+	color: black;
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 2px;
+}

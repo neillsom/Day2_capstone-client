@@ -17,11 +17,18 @@ export const fetchStylesFromApi = () => {
 	}
 }
 
-export const addToFavorites = (styleId, token) => {
+export const ADD_TO_FAVORITES_SUCCESS = 'ADD_TO_FAVORITES_SUCCESS';
+export const addToFavoritesSuccess = (styles) => {
+  return {
+    type: ADD_TO_FAVORITES_SUCCESS,
+    styles
+  }
+}
 
+export const addToFavorites = (styleId, token) => {
   return (dispatch) => {
 
-    fetch(`http://localhost:8080/users/style/${styleId}`, {
+    fetch(`${API_BASE_URL}/users/style/${styleId}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -32,10 +39,18 @@ export const addToFavorites = (styleId, token) => {
       })
     })
       .then(response => response.json())
-      .then(json => dispatch((json)))
+      .then(styles => dispatch(addToFavoritesSuccess(styles)))
       .catch(error => console.log(error));
   };
 };
+
+export const REMOVE_FROM_FAVORITES_SUCCESS = 'REMOVE_FROM_FAVORITES_SUCCESS';
+export const removeFromFavoritesSuccess = (styleId) => {
+  return {
+    type: REMOVE_FROM_FAVORITES_SUCCESS,
+    styleId
+  }
+}
 
 export const removeFromFavorites = (styleId, token) => {
 
@@ -52,7 +67,8 @@ export const removeFromFavorites = (styleId, token) => {
       })
     })
       .then(response => response.json())
-      .then(json => dispatch((json)))
+      // .then(json => dispatch((json)))
+      .then(styleId => dispatch(removeFromFavoritesSuccess(styleId)))
       .catch(error => console.log(error));
   };
 };
