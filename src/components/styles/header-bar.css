@@ -33,9 +33,9 @@ button.logout-button {
 	border: 1px solid rgba(69, 66, 39, .5);
 }
 
-.loginButton:hover,
-.logout-button:hover,
-.guide:hover {
+button.go-to-dashboard-button:hover,
+button.logout-button:hover,
+button.go-to-favorites-button:hover {
 	color: #E1C1C1;
 	cursor: pointer;
 }

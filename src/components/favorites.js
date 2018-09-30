@@ -5,21 +5,6 @@ import { fetchFavoritesFromApi } from '../actions/users';
 import requiresLogin from "./requires-login";
 import './styles/style-list.css'
 
-// const myArr = [
-//   '00044',
-//   '00005',
-//   '00017',
-//   '00042',
-//   '00023',
-//   '00037',
-//   '00018'
-// ]
-
-// const myFavs = [
-//   '00017',
-//   '00023'
-// ]
-
 class Favorites extends React.Component {
 
   componentDidMount() {
@@ -28,39 +13,21 @@ class Favorites extends React.Component {
   }
 
   render() {
-    const myStyles = this.props.styles; 
-    const myFavs = this.props.favorites; 
+    const myStyles = this.props.styles;
+    const myFavs = this.props.favorites;
     const newArr = myStyles.map(x => x.id);
 
-
     // filter styles, remove by fav ids vs style ids, then map
+    // convert styles list to obj
 
-     const styles = this.props.styles.map((style, index) =>
-      <section key={index} className="card">
-        
-        <figure className="card__thumbnail">
-          <img src={style.imgUrl} alt={style.title} />
-          <main className="card__description">
-            <header className="card__title">
-              <h3>{style.title}</h3>
-            </header>
-            <p>Length: {style.length}</p>
-          </main>
-        </figure>
-         <a href="#" className="button"
-          onClick={() => this.props.dispatch(removeFromFavorites(style.id, localStorage.getItem('authToken')))}
-          name="remove-from-favorites">Remove from favorites
-        </a>
-
-      </section>
-    )
-
-
-    const favorites = this.props.favorites.map((favorite, index) => 
-      <li key={index}>
-        {favorite}
-      </li>
-    )
+    const favorites = this.props.favorites
+      .map(favorite => myStyles.find(style => favorite === style.id))
+      .map((favorite, index) =>
+        <li key={index}>
+          <h3>{favorite.title}</h3>
+          <img src={favorite.imgUrl} />
+        </li>
+      )
 
     return (
       <div className="app-container" role="region">
@@ -70,7 +37,7 @@ class Favorites extends React.Component {
             {favorites}
           </ul>
           <div className="card-container">
-            {styles}
+
           </div>
         </div>
       </div>
@@ -79,7 +46,7 @@ class Favorites extends React.Component {
 }
 
 Favorites.defaultProps = {
-  favorites: [], 
+  favorites: [],
 }
 
 const mapStateToProps = (state) => ({
