@@ -5,14 +5,36 @@ import { fetchFavoritesFromApi } from '../actions/users';
 import requiresLogin from "./requires-login";
 import './styles/style-list.css'
 
+// const myArr = [
+//   '00044',
+//   '00005',
+//   '00017',
+//   '00042',
+//   '00023',
+//   '00037',
+//   '00018'
+// ]
+
+// const myFavs = [
+//   '00017',
+//   '00023'
+// ]
+
 class Favorites extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchFavoritesFromApi(this.props.username, this.props.token))
-    this.props.dispatch(fetchStylesFromApi())
+    this.props.dispatch(fetchFavoritesFromApi(this.props.username, this.props.token));
+    this.props.dispatch(fetchStylesFromApi());
   }
 
   render() {
+    const myStyles = this.props.styles; 
+    const myFavs = this.props.favorites; 
+    const newArr = myStyles.map(x => x.id);
+
+
+    // filter styles, remove by fav ids vs style ids, then map
+
      const styles = this.props.styles.map((style, index) =>
       <section key={index} className="card">
         
@@ -60,10 +82,10 @@ Favorites.defaultProps = {
   favorites: [], 
 }
 
-
 const mapStateToProps = (state) => ({
   favorites: state.user.favorites.favorites,
   styles: state.style.styles,
+  stylesIds: state.style.styles.map(x => x.id),
   token: state.auth.authToken,
   username: state.auth.currentUser.username,
 })

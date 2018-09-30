@@ -26,7 +26,6 @@ export class HeaderBar extends React.Component {
           </Link>
           <Link to="/favorites">
             <button
-              onClick={() => console.log('favorites link clicked')}
               className="go-to-favorites-button">
               My favorites
           </button>
