@@ -16,26 +16,27 @@ h1.header-title {
 
 .header-bar button {
 	padding: 7px;
-	border-radius: 5px;
-	border: 2px solid rgba(69, 66, 39, 0.5);
-	color: #474439;
+	border-radius: 2px;
+	border: 2px solid #444;
 }
 
 button.loginButton {
 	margin: 10px 5px;
 }
 
-button.guide,
+button.go-to-dashboard-button,
+button.go-to-favorites-button,
 button.logout-button {
 	margin: 10px 5px;
-	background-color: #e7e6db;
+	background-color: white;
+	color: #444;
 	border: 1px solid rgba(69, 66, 39, .5);
 }
 
 .loginButton:hover,
 .logout-button:hover,
 .guide:hover {
-	color: #db8057;
+	color: #E1C1C1;
 	cursor: pointer;
 }
 

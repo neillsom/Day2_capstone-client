@@ -14,6 +14,10 @@ export function LandingPage(props) {
 
   return (
 	<div className="landing">
+	<div className="infoaboutapp">
+	  	<h1>Less time,<br />more feeling fine.</h1>
+	  	<p>Spend less time getting ready in the morning worring about how to style your hair. Day2 Hair has hundreds of hairstyles recommended just for you. </p>
+	  </div>
 	  <div className="loginbox">
 			<h2>demouser</h2>
 			<LoginForm />
@@ -22,14 +26,6 @@ export function LandingPage(props) {
 			  <Link to="/register" className="signup-button">Sign up</Link>
 			</div>
 		</div>
-	  <div className="infoaboutapp">
-	  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	  </div>
 	</div>
   );
 }

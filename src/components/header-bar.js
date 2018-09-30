@@ -15,20 +15,23 @@ export class HeaderBar extends React.Component {
 
   render() {
 
-
-
-    // Only render the log out button if we are logged in
     let loggedInButtons;
     if (this.props.loggedIn) {
       loggedInButtons = (
-        <div><button className="logout-button" onClick={() => this.logOut()}>
-          Logout
-        </button>
+        <div>
+          <Link to="/dashboard">
+            <button className="go-to-dashboard-button">
+              Dashboard
+          </button>
+          </Link>
           <Link to="/favorites">
             <button
               onClick={() => console.log('favorites link clicked')}
               className="go-to-favorites-button">
               My favorites
+          </button>
+            <button className="logout-button" onClick={() => this.logOut()}>
+              Logout
           </button>
           </Link>
         </div>
@@ -37,17 +40,9 @@ export class HeaderBar extends React.Component {
 
     return (
       <div className="header-bar">
-        <h3>{this.props.currentUser}</h3>
         <div className="header">
           <h1 className="header-title">Day2 HeaderBar</h1>
         </div>
-        <Link to="/dashboard">
-          <button
-            onClick={() => console.log('dashboard link clicked')}
-            className="go-to-dashboard-button">
-            Dashboard
-          </button>
-        </Link>
 
         {loggedInButtons}
       </div>
@@ -61,3 +56,31 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(HeaderBar);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

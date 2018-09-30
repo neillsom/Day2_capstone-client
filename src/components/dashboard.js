@@ -8,18 +8,10 @@ import './styles/dashboard.css';
 import { Link } from 'react-router-dom';
 
 class Dashboard extends React.Component {
- 
+
   render() {
     return (
       <div className="app-container" role="region" aria-labelledby="region1">
-
-        <Link to="/favorites">
-          <button 
-            onClick={() => console.log('favorites link clicked')} 
-            className="go-to-favorites-button">
-            My favorites
-          </button>
-        </Link>
 
         <header role="banner">
           <h1>Dashboard</h1>
@@ -27,7 +19,7 @@ class Dashboard extends React.Component {
         </header>
         <div className="dashboard">
         </div>
-        <div className="styleList-container" role="region" aria-labelledby="region3">
+        <div className="styleList-container" role="region">
           <StyleList />
         </div>
       </div>
@@ -38,8 +30,8 @@ class Dashboard extends React.Component {
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
-  username: state.auth.currentUser.username,
-  name: `${currentUser.firstname} ${currentUser.lastname}`,
+    username: state.auth.currentUser.username,
+    name: `${currentUser.firstname} ${currentUser.lastname}`,
   };
 };
 

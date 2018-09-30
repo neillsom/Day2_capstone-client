@@ -12,16 +12,6 @@ class Favorites extends React.Component {
     this.props.dispatch(fetchStylesFromApi())
   }
 
-  // => ( ...)
-  // => { return (...)}
-
- outsideLoop = () => {
-  console.log('inside forloop ran')
-  for (let i = 0; i < this.props.styles; i++) {
-    console.log(1+2)
-  }
- }
-
   render() {
      const styles = this.props.styles.map((style, index) =>
       <section key={index} className="card">
@@ -46,19 +36,21 @@ class Favorites extends React.Component {
 
     const favorites = this.props.favorites.map((favorite, index) => 
       <li key={index}>
-        {this.outsideLoop()}
         {favorite}
       </li>
     )
 
     return (
-
-      <div>
-        <h2>{this.props.username}'s favorites</h2>
-        <ul className='userFavorites'>
-          {favorites}
-        </ul>
-        {styles}
+      <div className="app-container" role="region">
+        <div className="styleList-container" role="region">
+          <h2>{this.props.username}'s favorites</h2>
+          <ul className='userFavorites'>
+            {favorites}
+          </ul>
+          <div className="card-container">
+            {styles}
+          </div>
+        </div>
       </div>
     )
   }
