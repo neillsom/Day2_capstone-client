@@ -7,6 +7,7 @@ form.length-form {
 	text-align: left;
 	display: inline-block;
 	width: 33%;
+	max-width: 200px;
 }
 
 form.clean-or-dirty-form {
@@ -14,6 +15,7 @@ form.clean-or-dirty-form {
 	text-align: left;
 	display: inline-block;
 	width: 33%;
+	max-width: 200px;
 }
 
 .recommend-button {
@@ -22,4 +24,10 @@ form.clean-or-dirty-form {
 	background-color: white;
 	border: 2px solid black;
 	border-radius: 2px;
+}
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
 }
