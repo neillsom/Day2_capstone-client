@@ -27,7 +27,6 @@ export const addToFavoritesSuccess = (styles) => {
 
 export const addToFavorites = (styleId, token) => {
   return (dispatch) => {
-
     fetch(`${API_BASE_URL}/users/style/${styleId}`, {
       method: 'PUT',
       headers: {
@@ -56,7 +55,7 @@ export const removeFromFavorites = (styleId, token) => {
 
   return (dispatch) => {
 
-    fetch(`http://localhost:8080/users/style/remove/${styleId}`, {
+    fetch(`${API_BASE_URL}/users/style/remove/${styleId}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -67,7 +66,6 @@ export const removeFromFavorites = (styleId, token) => {
       })
     })
       .then(response => response.json())
-      // .then(json => dispatch((json)))
       .then(styleId => dispatch(removeFromFavoritesSuccess(styleId)))
       .catch(error => console.log(error));
   };
