@@ -1,4 +1,4 @@
-import { API_BASE_URL } from '../config'
+import { API_BASE_URL } from '../config';
 
 export const FETCH_STYLES_SUCCESS = 'FETCH_STYLES_SUCCESS';
 export const fetchStylesSuccess = (styles) => {
@@ -7,6 +7,8 @@ export const fetchStylesSuccess = (styles) => {
     styles
   }
 }
+
+// testing
 
 export const fetchStylesFromApi = () => {
 	return (dispatch) => {
