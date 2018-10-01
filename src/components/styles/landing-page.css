@@ -19,20 +19,17 @@ h4 {
 	margin: 10px auto;
 }
 
-.infoaboutapp p {
+.infoaboutapp {
 	margin: 20px;
 	font-family: 'Roboto', sans-serif;
 	color: #474439;
 	line-height: 1.5em;
 }
 
-.infoaboutapp h4 {
-	margin: 0;
+.infoaboutapp h1 {
+	line-height: 1.1em
 }
 
-hr {
-	margin-top: 10px;
-}
 
 @media all and (max-width: 500px) {
 	.landing>.loginbox {}

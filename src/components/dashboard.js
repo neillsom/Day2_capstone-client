@@ -4,7 +4,6 @@ import StyleList from './style-list';
 import requiresLogin from "./requires-login";
 import './styles/style-list.css';
 import './styles/dashboard.css';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 class Dashboard extends React.Component {
@@ -14,7 +13,7 @@ class Dashboard extends React.Component {
       <div className="dashboard">
         <div className="app-container" role="region">
 
-          <header role="banner">
+          <header className='banner' role="banner">
             <h1>Dashboard</h1>
             <h2>Hello {this.props.username}</h2>
           </header>
@@ -64,7 +63,6 @@ class Dashboard extends React.Component {
             </button>
 
           </div>
-
 
           <div className="styleList-container" role="region">
             <StyleList />

@@ -14,9 +14,8 @@ class Favorites extends React.Component {
 
   render() {
     const myStyles = this.props.styles;
-    const myFavs = this.props.favorites;
-    const newArr = myStyles.map(x => x.id);
-
+    // const myFavs = this.props.favorites;
+    // const newArr = myStyles.map(x => x.id);
     // filter styles, remove by fav ids vs style ids, then map
     // convert styles list to obj
 

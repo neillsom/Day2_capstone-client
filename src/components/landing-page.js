@@ -19,7 +19,7 @@ export function LandingPage(props) {
 	  	<p>Spend less time getting ready in the morning worring about how to style your hair. Day2 Hair has hundreds of hairstyles recommended just for you. </p>
 	  </div>
 	  <div className="loginbox">
-			<h2>demouser</h2>
+			<h2>Sign in</h2>
 			<LoginForm />
 			<div className="signup">
 			<p>Not registered?</p>

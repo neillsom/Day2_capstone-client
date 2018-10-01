@@ -1,3 +1,7 @@
+import {
+	FETCH_FAVORITES_SUCCESS
+} from '../actions/users'
+
 const initialState = {
 	favorites: [],
 	loading: false,
@@ -7,12 +11,9 @@ const initialState = {
 const userReducer = (state=initialState, action) => {
 	switch (action.type) {
 		case 'FETCH_FAVORITES_SUCCESS':
-			return {
-				...state,
-				favorites: action.favorites
-			}
-			default: 
-				return state
+			return { ...state, favorites: action.favorites }
+		default: 
+			return state
 	}
 };
 

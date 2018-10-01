@@ -1,15 +1,6 @@
 import { API_BASE_URL } from '../config';
 
-export const FETCH_STYLES_SUCCESS = 'FETCH_STYLES_SUCCESS';
-export const fetchStylesSuccess = (styles) => {
-  return {
-    type: FETCH_STYLES_SUCCESS,
-    styles
-  }
-}
-
-// testing
-
+export const FETCH_STYLES = 'FETCH_STYLES';
 export const fetchStylesFromApi = () => {
 	return (dispatch) => {
 		fetch(`${API_BASE_URL}/styles`)
@@ -17,6 +8,14 @@ export const fetchStylesFromApi = () => {
 		.then(styles => dispatch(fetchStylesSuccess(styles)))
 		.catch(error => console.log(error))
 	}
+}
+
+export const FETCH_STYLES_SUCCESS = 'FETCH_STYLES_SUCCESS';
+export const fetchStylesSuccess = (styles) => {
+  return {
+    type: FETCH_STYLES_SUCCESS,
+    styles
+  }
 }
 
 export const ADD_TO_FAVORITES_SUCCESS = 'ADD_TO_FAVORITES_SUCCESS';
@@ -27,6 +26,7 @@ export const addToFavoritesSuccess = (styles) => {
   }
 }
 
+export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const addToFavorites = (styleId, token) => {
   return (dispatch) => {
     fetch(`${API_BASE_URL}/users/style/${styleId}`, {
@@ -53,10 +53,9 @@ export const removeFromFavoritesSuccess = (styleId) => {
   }
 }
 
+export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 export const removeFromFavorites = (styleId, token) => {
-
   return (dispatch) => {
-
     fetch(`${API_BASE_URL}/users/style/remove/${styleId}`, {
       method: 'PUT',
       headers: {
@@ -72,3 +71,13 @@ export const removeFromFavorites = (styleId, token) => {
       .catch(error => console.log(error));
   };
 };
+
+
+
+
+
+
+
+
+
+
