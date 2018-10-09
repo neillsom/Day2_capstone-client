@@ -18,7 +18,7 @@ export class HeaderBar extends React.Component {
     let loggedInButtons;
     if (this.props.loggedIn) {
       loggedInButtons = (
-        <div>
+        <div className='header-bar-buttons'>
           <Link to="/dashboard">
             <button className="go-to-dashboard-button">
               Dashboard
@@ -39,10 +39,12 @@ export class HeaderBar extends React.Component {
 
     return (
       <div className="header-bar">
-        <div className="header">
+        <header>
+          <div className='header-bg'></div>
           <h1 className="header-title">Day2 Hair</h1>
-        </div>
-        {loggedInButtons}
+        </header>
+          {loggedInButtons}
+
       </div>
     );
   }

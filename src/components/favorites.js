@@ -4,6 +4,7 @@ import { fetchStylesFromApi, removeFromFavorites } from '../actions/styles'
 import { fetchFavoritesFromApi } from '../actions/users';
 import requiresLogin from "./requires-login";
 import './styles/style-list.css'
+import './styles/favorites.css'
 
 class Favorites extends React.Component {
 
@@ -16,8 +17,8 @@ class Favorites extends React.Component {
     const myStyles = this.props.styles;
     // const myFavs = this.props.favorites;
     // const newArr = myStyles.map(x => x.id);
-    // filter styles, remove by fav ids vs style ids, then map
-    // convert styles list to obj
+
+    // next steps: convert styles list to obj
 
     const favorites = this.props.favorites
       .map(favorite => myStyles.find(style => favorite === style.id))
@@ -45,7 +46,7 @@ class Favorites extends React.Component {
     return (
       <div className="app-container" role="region">
         <div className="styleList-container" role="region">
-          <h2>{this.props.username}'s favorites</h2>
+          <h2 className='username-name' >{this.props.username}'s favorites</h2>
           <div className="card-container">
           	{favorites}
           </div>

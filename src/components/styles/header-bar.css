@@ -1,15 +1,15 @@
 .header-bar {
 	margin: 0 auto;
 	padding: 1.5em 0 0 0;
-	background-color: white;
+	background-color: #fbdcdc;
 	border-bottom: 2px solid #d9d8d0;
 	width: 100%;
 }
 
+
 h1.header-title {
 	font-family: 'Amatic SC', cursive;
 	font-size: 3em;
-	color: #444;
 	width: 95%;
 	margin: 0 auto;
 }
@@ -33,11 +33,22 @@ button.logout-button {
 	border: 1px solid rgba(69, 66, 39, .5);
 }
 
+button.logout-button {
+	/*float: right;*/
+	/*margin-right: 15px;*/
+/*	background-color: black;
+	color: white;*/
+}
+
 button.go-to-dashboard-button:hover,
 button.logout-button:hover,
 button.go-to-favorites-button:hover {
-	color: #E1C1C1;
+	color: #ff2f6a;
 	cursor: pointer;
+}
+
+.header-bar-buttons {
+	padding-left: 15px;
 }
 
 @media only screen and (max-width:500px) {

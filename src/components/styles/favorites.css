@@ -1,0 +1,19 @@
+h2.username-name {
+	padding-left: 20px;
+}
+
+button.recommend-button {
+	margin: 10px 5px;
+	background-color: white;
+	color: #444;
+	border: 1px solid rgba(69, 66, 39, .5);
+}
+
+button.recommend-button:hover {
+	background-color: #fbd7d7;
+	cursor: pointer;
+}
+
+/*a.button:hover {
+	background-color:#fb9393;
+}*/
